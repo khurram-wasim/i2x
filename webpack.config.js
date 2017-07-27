@@ -5,7 +5,7 @@ const {getIfUtils, removeEmpty} = require('webpack-config-utils');
 
 module.exports = env => {
   const {ifProd, ifNotProd} = getIfUtils(env)
-
+  const activePort = process.env.PORT || 8080;
   return validate({
     entry: './index.js',
     context: __dirname,
@@ -17,7 +17,7 @@ module.exports = env => {
     },
     devtool: ifProd('source-map', 'eval'),
     devServer: {
-      port: 8080,
+      port: activePort,
       historyApiFallback: true
     },
     module: {

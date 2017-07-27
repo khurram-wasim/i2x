@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mzabriskie/react-example"
+    "url": "https://github.com/khurram-wasim/i2x"
   },
   "author": "Khurrram Wasim",
-  "homepage": "https://github.com/mzabriskie/react-example",
+  "homepage": "https://github.com/khurram-wasim/i2x",
   "dependencies": {
     "axios": "0.13.1",
     "bootstrap": "^3.3.5",
