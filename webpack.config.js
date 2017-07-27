@@ -6,6 +6,7 @@ const {getIfUtils, removeEmpty} = require('webpack-config-utils');
 module.exports = env => {
   const {ifProd, ifNotProd} = getIfUtils(env)
   const activePort = process.env.PORT || 8080;
+  console.log('HOST IS ',process.env.HOST);
   return validate({
     entry: './index.js',
     context: __dirname,
