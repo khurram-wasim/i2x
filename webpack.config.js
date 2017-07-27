@@ -7,8 +7,7 @@ const argv = require('minimist')(process.argv.slice(2));
 module.exports = env => {
   const {ifProd, ifNotProd} = getIfUtils(env)
   const activePort = process.env.PORT || 8080;
-  console.log('HOST IS ',process.env.HOST);
-  console.log('HOST2 IS ',argv.host);
+  const activeHost = argv.host || process.env.HOST;
   return validate({
     entry: './index.js',
     context: __dirname,
@@ -20,6 +19,7 @@ module.exports = env => {
     },
     devtool: ifProd('source-map', 'eval'),
     devServer: {
+      host: activeHost,
       port: activePort,
       historyApiFallback: true
     },
