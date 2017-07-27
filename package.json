@@ -4,7 +4,7 @@
   "description": "i2x Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base ./ --env.dev",
+    "start": "webpack-dev-server --inline --public --content-base ./ --env.dev",
     "build": "webpack --env.prod",
     "lint": "eslint app test",
     "setup": "npm install && npm run validate",
@@ -20,7 +20,7 @@
     "axios": "0.13.1",
     "bootstrap": "^3.3.5",
     "fs": "0.0.1-security",
-    "history": "^3.0.0",    
+    "history": "^3.0.0",
     "moment": "^2.10.6",
     "react": "15.3.0",
     "react-dom": "15.3.0",
