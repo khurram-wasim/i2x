@@ -1,8 +1,8 @@
 
-const hostName='localhost';
+let hostName='localhost';
 if (process.env.NODE && ~process.env.NODE.indexOf("heroku")) {
    hostName='i2x-ai-challenge.herokuapp';
-   console.log('i am in heroku');  
+   console.log('i am in heroku');
 }
 
 
