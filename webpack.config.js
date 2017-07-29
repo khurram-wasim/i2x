@@ -1,3 +1,8 @@
+
+const hostName='localhost';
+if (process.env.NODE && ~process.env.NODE.indexOf("heroku"))
+   hostName:'i2x-ai-challenge.herokuapp'
+
 var config = {
    entry: './index.js',
    output: {
@@ -6,6 +11,7 @@ var config = {
    },
    devServer: {
       inline: true,
+      host: hostName,
       port: process.env.PORT || 8080
    },
    module: {
