@@ -1,53 +1,23 @@
-const {resolve} = require('path');
-const webpack = require('webpack');
-const validate = require('webpack-validator');
-const {getIfUtils, removeEmpty} = require('webpack-config-utils');
-
-module.exports = env => {
-  const {ifProd, ifNotProd} = getIfUtils(env)
-  const activePort = process.env.PORT || 8080;
-  const activeHost = process.env.HOST;
-  return validate({
-    entry: './index.js',
-    context: __dirname,
-    output: {
-      path: resolve(__dirname, './build'),
+var config = {
+   entry: './index.js',
+   output: {
+      path:'/',
       filename: 'bundle.js',
-      publicPath: '/build/',
-      pathinfo: ifNotProd(),
-    },
-    devtool: ifProd('source-map', 'eval'),
-    devServer: {
-      host: 'localhost',
-      port: activePort,
-      historyApiFallback: true
-    },
-    module: {
-      loaders: [
-        {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-        {test: /\.css$/, loader: 'style-loader!css-loader'},
-        {test: /(\.eot|\.woff2|\.woff|\.ttf|\.svg)/, loader: 'file-loader'},
-      ],
-    },
-    plugins: removeEmpty([
-      ifProd(new webpack.optimize.DedupePlugin()),
-      ifProd(new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false,
-        quiet: true,
-      })),
-      ifProd(new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: '"production"',
-        },
-      })),
-      ifProd(new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true,
-        compress: {
-          screw_ie8: true, // eslint-disable-line
-          warnings: false,
-        },
-      })),
-    ])
-  });
-};
+   },
+   devServer: {
+      inline: true,
+      port: process.env.POPT || 8080
+   },
+   module: {
+     loaders: [
+       {
+         test: /\.jsx?$/,
+         exclude: /node_modules/,
+         loader: 'babel-loader',
+         },
+         {test: /\.css$/, loader: 'style-loader!css-loader'},
+         {test: /(\.eot|\.woff2|\.woff|\.ttf|\.svg)/, loader: 'file-loader'},
+      ]
+   }
+}
+module.exports = config;
