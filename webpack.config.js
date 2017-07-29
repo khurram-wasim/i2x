@@ -18,7 +18,6 @@ module.exports = env => {
     },
     devtool: ifProd('source-map', 'eval'),
     devServer: {
-      public: `localhost:${activePort}`,
       host: activeHost,
       port: activePort,
       historyApiFallback: true
@@ -50,5 +49,11 @@ module.exports = env => {
         },
       })),
     ])
-  });
+  }.listen(3000, function (err, result) {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log('Listening it at http://localhost:3000/');
+  }));
 };
