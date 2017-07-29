@@ -1,4 +1,4 @@
-
+console.log('ip is', process.env.IP);
 var config = {
    entry: './index.js',
    output: {
