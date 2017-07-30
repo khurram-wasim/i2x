@@ -9,3 +9,5 @@
 - Open `http://localhost:3000/` to view web app
 
 - Url to live app is `https://i2x-ai-challenge.herokuapp.com/`
+
+- Username: `challenge@i2x.ai`, Password: `pass123`
