@@ -1,14 +1,9 @@
-console.log('ip is', process.env.IP);
+
 var config = {
    entry: './index.js',
    output: {
-      path:'/',
+      path:'build',
       filename: 'bundle.js',
-   },
-   devServer: {
-      inline: true,
-      host: process.env.IP || 'localhost',
-      port: process.env.PORT || 8080
    },
    module: {
      loaders: [
@@ -19,6 +14,7 @@ var config = {
          },
          {test: /\.css$/, loader: 'style-loader!css-loader'},
          {test: /(\.eot|\.woff2|\.woff|\.ttf|\.svg)/, loader: 'file-loader'},
+
       ]
    }
 }

@@ -4,8 +4,8 @@
   "description": "i2x Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot",
-    "build": "webpack --env.prod",
+    "start": "npm run build; node server.js",
+    "build": "webpack -p",
     "lint": "eslint app test",
     "setup": "npm install && npm run validate",
     "validate": "npm-run-all lint build"
@@ -55,7 +55,7 @@
     "sinon-chai": "2.8.0",
     "starwars-names": "1.6.0",
     "style-loader": "^0.13.0",
-    "webpack": "2.1.0-beta.20",
+    "webpack": "3.4.1",
     "webpack-config-utils": "2.0.0",
     "webpack-dev-server": "2.1.0-beta.0",
     "webpack-validator": "2.2.7"
